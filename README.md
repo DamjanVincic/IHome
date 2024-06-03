@@ -9,7 +9,7 @@ IHome depends on the backend, a RESTFul API built with Django which uses a local
 ### Prerequisites
 Before running IHome, ensure you have the following installed:
 * [Flutter SDK](https://flutter-ko.dev/get-started/install)
-* [Docker](https://docs.docker.com/compose/install/)
+* [Docker](https://docs.docker.com/engine/install/)
 
 ### App setup
 Clone the application from GitHub.
@@ -18,19 +18,19 @@ git clone https://github.com/NikolaOgnjenovic/EESTech.git
 ```
 
 #### Backend setup
+Rename example.env file to .env and change it's values for your own configuration.
 ```bash
 mv example.env .env
 ```
 
-Navigate to the backend directory and run docker-compose.yml.
+Run Docker Compose.
 ```bash
-cd backend
-docker-compose up -d
+docker compose up -d
 ```
 
 #### Frontend setup
 ```bash
-cd ../frontend
+cd frontend
 flutter pub get
 ```
 To run IHome on a connected device or emulator, use the following command:
@@ -47,6 +47,7 @@ Go to the [pgAdmin web UI](http://localhost:5050/browser/) and login with the fo
 admin@admin.com
 admin
 ```
+> Or your own credentials if you changed them in .env file.
 
 ![pgAdmin login](assets/images/readme/pgAdminLogin.png)
 
@@ -59,13 +60,14 @@ Name the server any way you want.
 ![pgAdmin server name](assets/images/readme/pgAdminServerName.png)
 
 Enter the following values:
-*db* for the host name/address
-*user* for the username anad password
+**db** for the host name/address,
+**user** for the username and password
 Afterwards, press *Save*.
+> If you changed .env values use them here instead of these ones.
 
 ![pgAdmin server connection](assets/images/readme/pgAdminServerConnection.png)
 
-View the tables by opening the *dev_smart_home_db* database, the *public* schema and the *tables* collection.
+View the tables by opening the database, the *public* schema and the *tables* collection.
 
 ![pgAdmin tables](assets/images/readme/pgAdminTables.png)
 
